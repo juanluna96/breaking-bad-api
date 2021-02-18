@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import logo from './logo.svg';
 import styled from '@emotion/styled';
 import Frase from './components/Frase'
+import { translate, detect } from 'google-translate-api-wrapper'
 
 const Contenedor = styled.div`
   display: flex;
@@ -29,7 +30,11 @@ function App() {
   const consultarApi = async () => {
     const api = await fetch('https://breaking-bad-quotes.herokuapp.com/v1/quotes');
     const frase = await api.json();
-    setFrase(frase[0]);
+    const frase_traducida = {
+      quote: await translate(frase[0].quote, { to: 'es', from: 'en', key: 'AIzaSyAEmKRCwfou4DqIoP8o6lrlt2nHbi8Af9g' }),
+      author: frase[0].author,
+    };
+    setFrase(frase_traducida);
   }
 
   return (
