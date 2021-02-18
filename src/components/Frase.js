@@ -8,7 +8,7 @@ const ContenedorFrase = styled.div`
   max-width: 800px;
 
   @media (min-width: 992px) {
-    margin-top: 20rem;
+    margin-top: 10rem;
   }
 
   h1{ 

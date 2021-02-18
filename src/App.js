@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import styled from '@emotion/styled';
 import Frase from './components/Frase'
-import { translate, detect } from 'google-translate-api-wrapper'
+import { translate } from 'google-translate-api-wrapper'
 
 const Contenedor = styled.div`
   display: flex;
@@ -23,6 +23,12 @@ const Boton = styled.button`
   padding: 1rem 3rem;
   font-size: 2rem;
   border: 2px solid #000;
+  transition: background-size .8s ease;
+
+  :hover {
+    cursor: pointer;
+    background-size: 400;
+  }
 `;
 
 function App() {
@@ -39,6 +45,11 @@ function App() {
     };
     setFrase(frase_traducida);
   }
+
+  // Cargar una frase
+  useEffect(() => {
+    consultarApi();
+  }, [])
 
   return (
     <Contenedor>
