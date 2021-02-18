@@ -7,8 +7,11 @@ import { translate, detect } from 'google-translate-api-wrapper'
 const Contenedor = styled.div`
   display: flex;
   align-items: center;
-  padding-top: 5rem;
   flex-direction: column;
+
+  @media (min-width: 992px) {
+    padding-top: 5rem;
+  }
 `;
 
 const Boton = styled.button`
