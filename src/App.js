@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import logo from './logo.svg';
 import styled from '@emotion/styled';
+import Frase from './components/Frase'
 
 const Contenedor = styled.div`
   display: flex;
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <Contenedor>
+      <Frase frase={ frase }></Frase>
       <Boton onClick={ consultarApi }>Obtener frase</Boton>
     </Contenedor>
   );
